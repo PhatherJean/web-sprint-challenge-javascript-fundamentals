@@ -26,14 +26,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
+.forEach doesn't automatic make a new array while .map does
+but both can be used to go thru massive amount of data and return what is being request 
 
 2. Explain the difference between a callback and a higher order function.
+callback is a function that is passed as an argument in another function
+HOF is the recieving function that take the callback as an argument
 
 3. What is closure?
+when it require for a child scope to reach out into the parent scope for values to complete the task
 
 4. Describe the four rules of the 'this' keyword.
+window lock which should never be done where it will bring up everything in windows if not in strict mode where it just gives undefined
+implicit
+explicit
+Constructor 
 
 5. Why do we need super() in an extended class?
+in order for it to inherit the parent attributes
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
