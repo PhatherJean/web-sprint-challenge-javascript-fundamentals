@@ -5,11 +5,11 @@ Study the code below and explain in your own words why nested function can acces
 const external = "I'm outside the function";
 
 function myFunction() {
-  console.log(external);
+  //console.log(external);
   const internal = "Hello! I'm inside myFunction!";
 
   function nestedFunction() {
-    console.log(internal);
+//    console.log(internal);
   }
   nestedFunction();
 }
@@ -26,14 +26,13 @@ myFunction();
 /* Create a function called `summation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 function summation(num) {
   let counter = 0
-  for(let i = counter; i < num; i++){
+  for(let i = 0; i < num+1 ; i++){
    console.log(i)
-    return counter= counter + i;
-    console.log(i)
-    console.log(counter)
+     counter = counter + i
   }
+  return counter
 console.log(counter);
-  }
+}
  summation(4)
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -61,33 +60,45 @@ const zooAnimals = [
       displayNames.push(`name: ${item['animal_name']}, scientific: ${item['scientific_name']}`);
     })
     return displayNames;
-  }
+  // info.forEach(item => displayNames.push(`name: ${item['animal_name']}, scientific: ${item['scientific_name']}`));
+   }
+  
+ 
+
   animalNames(zooAnimals);
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
-  */
-  function lowerCaseNames(info){
+  
+  // */
+   function lowerCaseNames(info){
     const lowerCaseAnimalNames = info.map(function(item){
         return item['animal_name'].toLowerCase();
     })
-        return lowerCaseAnimalNames
-  }
-  
+         return lowerCaseAnimalNames
+  //   const lowerCaseAnimalNames = info.map(item => item['animal_name'].toLowerCase());
+}
+
+ 
+
   lowerCaseNames(zooAnimals);
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
   */
-  function lowPopulationAnimals(info){
+
+   function lowPopulationAnimals(info){
     const lowPopulationAnimals = info.filter(function(item){
         if(item.population < 5){
           return item
         }
     })
     return lowPopulationAnimals
-  }
-  lowPopulationAnimals(zooAnimals)
+   //const lowPopulationCount = info.filter((item) => { if(item.population < 5) return item })
+  //lowPopulationAnimals(zooAnimals)
+}
+
+  
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
@@ -97,6 +108,7 @@ const zooAnimals = [
     
   return USApop
   }
+
   USApop(zooAnimals);
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -106,20 +118,27 @@ const zooAnimals = [
     * The last parameter accepts a callback
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
-  function consume(a, b, cb){
-    return cb(a,b)
-  }
+
+   function consume(a, b, cb){
+     return cb(a,b)
+   }
  
-  
+  //const consumed = (a, b, cb) => cb(a,b)
+
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Create a function named add that returns the sum of two numbers 🦁🦁🦁
+  
   function add(a, b){
-    return a + b
-  }
-// 🦁🦁🦁 Create a function named multiply that returns the product of two numbers 🦁🦁🦁
-  function multiply(a, b){
+     return a + b
+   }
+  //const addTwo = (a,b) => a + b;
+
+  // 🦁🦁🦁 Create a function named multiply that returns the product of two numbers 🦁🦁🦁
+ 
+function multiply(a, b){
    return a*b
-  }
+  } 
+  //const multiplyTwo = (a, b) => a * b;  
 
  // 🦁🦁🦁 Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!" 🦁🦁🦁
   function greeting(first, last){
@@ -205,18 +224,28 @@ class CuboidMakerTwo{
     return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height))
   }
 }
-
+const cuboidTwo = new CuboidMakerTwo({
+    length: 4,
+    width: 5,
+    height: 5
+});
+ 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
 
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
-  
+  class CubeMaker extends CuboidMaker{
+    constructor(attr){
+      super(attr)
+      
+    }
+  }
 
 
 
